@@ -218,3 +218,40 @@ function toggleEditing1() {
       editButton.textContent = 'Save'; // Change button text to Save
   }
 }
+function saveChanges() {
+  const firstName = document.getElementById('firstName').value;
+  const lastName = document.getElementById('lastName').value;
+  const email = document.getElementById('email').value;
+  const phone = document.getElementById('phone').value;
+  const department = document.getElementById('department').value;
+  const title = document.getElementById('title').value;
+
+  // Perform validation (check if fields are not empty, valid email format, etc.)
+
+  // Save data (for example, send it to the backend or save it in local storage)
+  // Example for local storage:
+  localStorage.setItem('firstName', firstName);
+  localStorage.setItem('lastName', lastName);
+  localStorage.setItem('email', email);
+  localStorage.setItem('phone', phone);
+  localStorage.setItem('department', department);
+  localStorage.setItem('title', title);
+
+  // Hide the edit profile section
+  document.getElementById('editProfileSection').style.display = "none";
+
+  // Show the overview section (assuming it has an ID of "overviewSection")
+  document.getElementById('overviewSection').style.display = "block";
+
+  // Optionally disable inputs again after saving
+  toggleEditing();
+}
+
+// Attach the saveChanges function to the Save button
+document.getElementById('saveEditProfile').onclick = saveChanges;
+
+// Optional: Attach a function to the cancel button
+document.getElementById('cancelEditProfile').onclick = function() {
+  document.getElementById('editProfileSection').style.display = "none";
+  document.getElementById('overviewSection').style.display = "block"; // Navigate to overview
+};
