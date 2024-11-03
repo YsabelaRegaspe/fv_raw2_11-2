@@ -445,14 +445,40 @@ body.dark {
 
   /* Profile picture preview */
   .profile-picture-preview1 {
-    margin-bottom: 10px; 
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden; /* Make sure the container fits the image */
     /* Space between image and upload input */
   }
+  .image-hover-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none; /* Hidden by default */
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 16px;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 
+}
+
+.profile-picture-preview1:hover .image-hover-label {
+    display: flex; /* Show on hover */
+}
   .profilepic1 {
-    width: 110px; /* Fixed size for profile picture */
-    height: 110px; /* Fixed size for profile picture */
-    border-radius: 50%; /* Circular image */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
   }
 
   /* Upload input styling */
@@ -460,16 +486,6 @@ body.dark {
     display: none; /* Hide default file input */
   }
 
-  /* Custom label for upload button */
-  .upload-label {
-    background-color: #98938d; /* Button color */
-    color: #fff; /* White text */
-    padding: 8px 15px; /* Padding for button */
-    border-radius: 4px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    text-align: center; 
-  
-  }
 
   /* Edit button styling */
 
@@ -548,36 +564,8 @@ body.dark {
   transition: background-color 0.3s; 
   }
   /* Hide file input by default */
-  .upload-input {
-    display: none; /* Hide default file input */
-  }
+  
 
-  /* Custom label for upload button */
-  .upload-label {
-    background-color: #98938d; /* Button color */
-    color: #fff; /* White text */
-    padding: 8px 15px; /* Padding for button */
-    border-radius: 4px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    text-align: center; /* Center text */
-  }
-  .upload-label:hover {
-    background-color: #c0c4c8; /* Darker background color on hover */
-  }
-
-  /* Make the file input visible when editing */
-  .upload-container {
-    opacity: 0; /* Start as invisible */
-    transition: opacity 0.3s ease, height 0.3s ease; /* Smooth transition for opacity and height */
-    height: 0; /* Collapsed height initially */
-    overflow: hidden; /* Prevent overflow when hidden */
-  }
-
-  .upload-container.visible {
-    opacity: 1; /* Fully visible */
-    height: auto; /* Allow natural height when visible */
-    margin-bottom: 0px; /* Space when visible */
-  }
 
 /* Change background color on hover */
 /*personal info*/ 
@@ -585,7 +573,7 @@ body.dark {
 .profile-container {
   border: 2px solid #383838;
   border-radius: 15px;
-  padding: 20px;
+  padding: 30px;
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
@@ -602,6 +590,12 @@ body.dark {
   margin-bottom: 10px;
   flex-direction: row;
 }
+.form-row3 {
+  display: flex;
+  margin-bottom: 40px;
+  flex-direction: row;
+}
+
 
 .modal-input2 {
   width: 100%; /* Take full width of modal field */
@@ -635,6 +629,7 @@ body.dark {
   position: relative;
 }
 
+
 .modal-label2 {
   display: block;
   margin-bottom: 3px;
@@ -642,8 +637,9 @@ body.dark {
 }
 .gender-options {
   display: flex;
-  gap: 10px;
-  transition: opacity 0.3s;
+    gap: 20px;
+    margin-top: 10px;
+    transition: opacity 0.3s;
 }
 
 .gender-options label {
@@ -671,7 +667,7 @@ body.dark {
 .selected-gender {
   color:#656360;
   font-size: 14px;
-  margin-top:10px /* Set the text color for the selected gender */
+  margin-top:0px /* Set the text color for the selected gender */
 }
 .gender-options.hidden {
   opacity: 0; /* Make it transparent when hidden */

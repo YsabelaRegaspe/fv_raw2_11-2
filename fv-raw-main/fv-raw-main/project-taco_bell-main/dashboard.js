@@ -99,7 +99,27 @@ cancelEditProfileBtn.addEventListener('click', function () {
   editProfileSection.style.display = "none"; // Hide the Edit Profile section
   navbar.style.display = "flex"; // Show the navbar again
 });
+const saveEditProfileBtn = document.getElementById('saveEditProfile');
+saveEditProfileBtn.addEventListener('click', function () {
+  // You can add any logic here to save the profile changes if needed
+  
+  editProfileSection.style.display = "none"; // Hide the Edit Profile section
+  navbar.style.display = "flex"; // Show the navbar again
+});
 
+function previewImage(event) {
+  const file = event.target.files[0]; // Get the selected file
+  const reader = new FileReader(); // Create a FileReader object
+
+  reader.onload = function (e) {
+      const img = document.getElementById('profileImagePreview'); // Get the image element
+      img.src = e.target.result; // Set the image source to the file data
+  }
+
+  if (file) {
+      reader.readAsDataURL(file); // Read the file as a data URL
+  }
+}
 
 
 // Function to preview the uploaded image
@@ -225,6 +245,7 @@ function saveChanges() {
   const phone = document.getElementById('phone').value;
   const department = document.getElementById('department').value;
   const title = document.getElementById('title').value;
+  const navbar = document.querySelector(".navbar");
 
   // Perform validation (check if fields are not empty, valid email format, etc.)
 
@@ -249,9 +270,12 @@ function saveChanges() {
 
 // Attach the saveChanges function to the Save button
 document.getElementById('saveEditProfile').onclick = saveChanges;
+ 
 
 // Optional: Attach a function to the cancel button
 document.getElementById('cancelEditProfile').onclick = function() {
   document.getElementById('editProfileSection').style.display = "none";
-  document.getElementById('overviewSection').style.display = "block"; // Navigate to overview
+  document.getElementById('overviewSection').style.display = "block";
+   // Navigate to overview
 };
+

@@ -188,16 +188,19 @@
       <br>
       <div class="profile-edit-container1">
         <div class="form-fields-container1">
-            <div class="profile-picture-section1">
-                <div class="profile-picture-preview1">
-                    <img id="profileImagePreview" src="dashboard/Icons/user.png" class="profilepic1" alt="Profile Preview">
-                </div>
-                <div class="upload-container"> <!-- Removed inline display:none -->
-                    <input type="file" id="profilePicture" accept="image/*" onchange="previewImage(event)" class="upload-input" />
-                    <label for="profilePicture" class="upload-label">Choose File</label>
-                </div>
+          <div class="profile-picture-section1">
+            <div class="profile-picture-preview1">
+                <img id="profileImagePreview" src="dashboard/Icons/user.png" class="profilepic1" alt="Profile Preview" />
+                <label for="profilePicture" class="image-hover-label">Change Image</label>
             </div>
-            
+            <div class="upload-container">
+                <input type="file" id="profilePicture" accept="image/*" onchange="previewImage(event)" class="upload-input" />
+            </div>
+        </div>
+        
+        
+        
+        
             <div class="form-fields1">
                 <div class="modal-field1 input-group1">
                     <label for="username" class="modal-label1">Username</label>
@@ -261,7 +264,7 @@
         </div>
       </div>
     
-      <div class="form-row2">
+      <div class="form-row3">
         <div class="modal-field2">
           <label for="department" class="modal-label2">Department</label>
           <input type="text" id="department" class="modal-input2" disabled />
